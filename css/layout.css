@@ -1,8 +1,8 @@
 /* Header */
 header {
-    background: var(--secondary);
-    color: var(--on-secondary);
-    padding: 5px 0;
+    background: var(--header-bg);
+    color: var(--on-primary);
+    padding: 0px 0;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -13,6 +13,13 @@ header {
     height: auto;
 }
 
+.bi {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+    font-size: 1.3rem;
+    vertical-align: middle;
+}
 /* Navigation */
 nav ul {
     display: flex;
@@ -20,18 +27,22 @@ nav ul {
 }
 
 nav li {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 nav a {
-    color: var(--on-secondary);
+    color: var(--on-primary);
     text-decoration: none;
-    padding: 10px 15px;
-    transition: background 0.3s;
+    padding: 8px 40px;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: inline-block;
+    border-radius: 4px;
 }
 
 nav a:hover, nav a.active {
-    background: var(--);
+    background: var(--accent);
 }
 
 /* Main Content */
