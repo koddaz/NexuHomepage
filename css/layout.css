@@ -1,43 +1,53 @@
+/* Base Layout - Mobile First Approach */
 /* Header */
 header {
     background: var(--header-bg);
     color: var(--on-primary);
-    padding: 0px 0;
+    padding: 10px 15px;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo {
-    width: 200px;
+    width: 150px;
     height: auto;
+    margin-bottom: 10px;
 }
 
 .bi {
-    width: 40px;
-    height: auto;
-    margin-right: 10px;
-    font-size: 1.3rem;
+    margin-right: 8px;
+    font-size: 1.2rem;
     vertical-align: middle;
 }
+
 /* Navigation */
+nav {
+    width: 100%;
+}
+
 nav ul {
     display: flex;
+    flex-direction: column;
     list-style: none;
+    width: 100%;
+    padding: 0;
 }
 
 nav li {
-    margin-left: 10px;
+    margin: 5px 0;
+    width: 100%;
 }
 
 nav a {
     color: var(--on-primary);
     text-decoration: none;
-    padding: 8px 40px;
+    padding: 10px 15px;
     transition: background 0.3s, transform 0.3s;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
-    display: inline-block;
+    display: block;
+    text-align: center;
     border-radius: 4px;
 }
 
@@ -48,7 +58,7 @@ nav a:hover, nav a.active {
 /* Main Content */
 .section {
     display: none;
-    padding: 30px 0;
+    padding: 20px 0 60px; /* Added bottom padding for fixed footer */
 }
 
 .section.active {
@@ -56,7 +66,7 @@ nav a:hover, nav a.active {
 }
 
 .container {
-    width: 80%;
+    width: 95%;
     margin: auto;
     overflow: hidden;
 }
@@ -70,30 +80,169 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    font-size: 0.8rem;
 }
 
 /* Home page specific layouts */
 .hero {
     text-align: center;
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
 }
 
 .tagline {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--text-light);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .features {
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 .features h3 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature {
+    margin-bottom: 15px;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--on-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .mobile-menu-toggle {
+      display: block;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    
+    nav ul {
+      display: none;
+    }
+    
+    nav.active ul {
+      display: flex;
+    }
+  }
+/* Tablet Styles */
+@media screen and (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+        width: 180px;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    
+    nav li {
+        width: auto;
+        margin: 0 0 0 10px;
+    }
+    
+    nav a {
+        padding: 8px 20px;
+        display: inline-block;
+    }
+    
+    .container {
+        width: 90%;
+    }
+    
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    .features-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .feature {
+        flex: 1 1 45%;
+    }
+    
+    footer {
+        font-size: 0.9rem;
+    }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1024px) {
+    .logo {
+        width: 200px;
+    }
+    
+    nav a {
+        padding: 8px 40px;
+        font-size: 1.1rem;
+    }
+    
+    .container {
+        width: 80%;
+    }
+    
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .features-grid {
+        gap: 20px;
+    }
+    
+    .feature {
+        flex: 1 1 30%;
+    }
+    
+    footer {
+        font-size: 1rem;
+    }
+}
+
+/* Large Desktop Styles */
+@media screen and (min-width: 1440px) {
+    .container {
+        width: 70%;
+        max-width: 1200px;
+    }
 }
