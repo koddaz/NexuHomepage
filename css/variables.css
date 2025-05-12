@@ -18,11 +18,12 @@
     --on-error: #FFFFFF;
 
     /* Additional colors */
-    --header-bg: #35424a;
-    --accent: #e8491d;
-    --accent-hover: #d43f18;
-    --text-light: #666;
-    --card-shadow: rgba(0,0,0,0.1);
+/* Additional colors - updated to work with primary purple */
+--header-bg: #3a0080; /* Darker purple for header */
+--accent: #03DAC6; /* Using secondary teal as accent - complements purple */
+--accent-hover: #018786; /* Darker teal for hover states */
+--text-light: #7b7b7b; /* Slightly warmer gray for better contrast */
+--card-shadow: rgba(98, 0, 238, 0.08); /* Shadow with hint of primary color */
 }
 
 * {
