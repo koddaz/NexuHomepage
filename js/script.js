@@ -95,22 +95,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add this to your script.js file
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('nav');
-    
-    if (menuToggle) {
-      menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-      });
-    }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-        nav.classList.remove('active');
-      }
-    });
-  });
