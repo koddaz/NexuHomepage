@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Get all navigation links
     const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('.section');
     
     // Function to load content using XMLHttpRequest
     function loadContent(sectionId) {
@@ -53,35 +54,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Add click event listener to each link
+    // Set up navigation click handlers
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor link behavior
+            // Prevent default anchor behavior
+            e.preventDefault();
             
-            // Get the target section id from the href attribute
-            const targetId = this.getAttribute('href').substring(1); // Remove the # character
-            console.log('Clicked on navigation link:', targetId); // Debug log
+            // Remove active class from all links
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Get the target section
+            const targetId = this.getAttribute('href').substring(1);
             
             // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
+            sections.forEach(section => section.classList.remove('active'));
             
-            // Show the target section
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                // Load content for this section
-                loadContent(targetId);
-            } else {
-                console.error(`Target section not found for ID: ${targetId}`);
-            }
+            // Show target section
+            document.getElementById(targetId).classList.add('active');
             
-            // Update active class on navigation links
-            navLinks.forEach(navLink => {
-                navLink.classList.remove('active');
-            });
-            this.classList.add('active');
+            // Load content for the clicked section
+            loadContent(targetId);
         });
     });
     
