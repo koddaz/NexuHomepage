@@ -1,0 +1,32 @@
+[
+    {
+        "title": "CustomerConnect",
+        "description": "An integrated platform that helps businesses manage customer interactions across multiple channels.",
+        "image": "./img/stolenLogo.jpg",
+        "link": "#project-customerconnect"
+    },
+    {
+        "title": "FeedbackLoop",
+        "description": "Real-time feedback collection and analysis tool that helps businesses understand and respond to customer needs.",
+        "image": "./img/stolenLogo.jpg",
+        "link": "#project-feedbackloop"
+    },
+    {
+        "title": "EngagementTracker",
+        "description": "Analytics dashboard that measures and visualizes customer engagement metrics to improve business strategies.",
+        "image": "./img/stolenLogo.jpg",
+        "link": "#project-engagementtracker"
+    },
+    {
+        "title": "OmniSupport",
+        "description": "Unified support system that streamlines customer service operations across email, chat, and social platforms.",
+        "image": "./img/stolenLogo.jpg",
+        "link": "#project-omnisupport"
+    },
+    {
+        "title": "SentimentPulse",
+        "description": "AI-powered tool that analyzes customer sentiment from reviews and communications to identify improvement areas.",
+        "image": "./img/stolenLogo.jpg",
+        "link": "#project-sentimentpulse"
+    }
+]

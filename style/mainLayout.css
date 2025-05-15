@@ -1,0 +1,235 @@
+/* Default containers */
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+html {
+     overflow-y: scroll;
+}
+
+main {
+     overflow-y: auto;
+}
+
+/* Prevent unwanted scrolling in children */
+main>* {
+     overflow: visible;
+}
+
+body,
+html {
+     font-family: 'Arial', sans-serif;
+     background-color: var(--background);
+     min-height: 100vh;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     flex-direction: column;
+}
+
+header {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     width: 100%;
+     height: auto;
+
+     background-color: var(--background);
+     position: sticky;
+     top: 0;
+     z-index: 100;
+}
+
+.headerContent {
+     display: flex;
+     flex: 1;
+     flex-direction: column;
+     align-items: stretch; /* Changed from center to stretch */
+     justify-content: space-between;
+     border: 1px solid var(--border-color-dark);
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     height: 100%;
+     width: 100%;
+     background-color: var(--surface);
+}
+
+main {
+     display: flex;
+     padding-top: 16px;
+     padding-bottom: 16px;
+     flex-direction: column;
+     flex: 1;
+     width: 100%;
+     height: 100%;
+}
+
+.content {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     flex: 1;
+}
+
+
+footer {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     width: 100%;
+     height: auto;
+     background-color: var(--background);
+}
+
+.footerContainer {
+     display: flex;
+     flex: 1;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     border: 1px solid var(--border-color-dark);
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     height: 100%;
+     width: 100%;
+     background-color: var(--surface);
+}
+
+.footerContent {
+     display: flex;
+     flex: 1;
+     justify-content: flex-end; /* Align text to the right */
+     padding: 8px 16px; /* Add padding to the content */
+}
+
+.logo {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 60px; /* Fixed width for the image */
+     height: 60px; /* Fixed height for the image */
+     margin-right: 12px; /* Space between logo and text */
+     object-fit: contain; /* Preserve aspect ratio */
+}
+
+.logoContainer {
+     display: flex;
+     align-items: center;
+     padding-left: 16px;
+     height: 100%;
+     align-items: center;
+     font-weight: bold;
+     font-size: 1.5rem;
+     flex-shrink: 0;
+}
+
+.menuContainer {
+     display: flex;
+     flex: 1;
+     align-items: flex-end;
+     height: 100%;
+     padding-left: 8px;
+     padding-right: 8px;
+}
+
+.mainContent {
+     display: flex;
+     width: 100%;
+     flex: 1;
+     background-color: var(--background);
+}
+
+.sideSpacer {
+     display: flex;
+     flex-direction: column;
+     width: 10vw;
+     /* On large screens */
+}
+
+/* Add responsive hamburger menu for small screens */
+.menuToggle {
+     display: none;
+     /* Hidden by default */
+     cursor: pointer;
+     padding: 10px;
+     font-size: 1.5rem;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+     header {
+          flex-direction: row;
+          border-bottom: 0;
+          height: 60px;
+     }
+     
+     .headerContent {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+     }
+     
+     /* Show the menu toggle on mobile */
+     .menuToggle {
+          display: block;
+          position: relative;
+          z-index: 101;
+     }
+     
+     /* Make side spacers smaller on mobile */
+     .sideSpacer {
+          width: 5vw;
+     }
+     
+     /* Hide the horizontal menu */
+     .menuContainer nav ul {
+          display: none;
+     }
+     
+     /* Only show menu when toggled open */
+     .menuContainer nav.open ul {
+          display: flex;
+     }
+}
+
+/* Even smaller screens */
+@media screen and (max-width: 480px) {
+     .sideSpacer {
+          width: 2vw; /* Even smaller spacers on phones */
+     }
+}
+
+
+/* Custom scrollbar styling */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+     width: 10px;
+}
+
+::-webkit-scrollbar-track {
+     background: var(--background);
+     border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+     background: var(--surface);
+     border-radius: 10px;
+     border: 2px solid var(--on-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+     background: var(--on-primary);
+}
+
+/* For Firefox */
+html,
+body,
+main {
+     scrollbar-color: var(--surface) var(--background);
+     scrollbar-width: thin;
+}
