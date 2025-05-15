@@ -37,6 +37,10 @@ function loadContent(page) {
                if (page.includes('portfolio.html')) {
                     loadProjects();
                }
+
+               if (page.includes('contact.html')) {
+                    loadProfiles();
+               }
           })
           .catch(error => {
                console.error('There was a problem with the fetch operation:', error);
@@ -54,7 +58,7 @@ function hashToPage(hash) {
           'about': './tabs/about/about.html',
           'portfolio': './tabs/portfolio/portfolio.html',
           'contact': './tabs/contact/contact.html',
-          'product': './tabs/product/product.html',	
+          'product': './tabs/product/product.html',
           // Add more pages as needed
      };
 
@@ -165,5 +169,49 @@ function loadProjects() {
           .catch(error => {
                console.error('Error loading projects:', error);
                projectsContainer.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
+          });
+}
+
+function loadProfiles() {
+     const profilesContainer = document.getElementById('profilesContainer');
+     if (!profilesContainer) return;
+
+     profilesContainer.innerHTML = '<p>Loading team profiles...</p>';
+
+     fetch('./Scripts/profiles.json')
+          .then(response => {
+               if (!response.ok) {
+                    throw new Error('Failed to load profiles');
+               }
+               return response.json();
+          })
+          .then(profiles => {
+               profilesContainer.innerHTML = '';
+
+               profiles.forEach(profile => {
+                    const profileRow = document.createElement('div');
+                    profileRow.className = 'presentationContainer';
+
+                    profileRow.innerHTML = `
+                         <div class="imageContainer">
+                              <img src="${profile.image}" alt="${profile.name}" class="profileImage" />
+                         </div>
+                         <div class="projectContent">
+                              <h3 class="profileName text-subtitle">${profile.name}</h3>
+                              <p class="profileTitle text-caption ">${profile.title}</p>
+                              <p class="profileBio text-body-small text-justify">${profile.bio}</p>
+                              <div class="profileSkills">
+                                   ${profile.skills.map(skill => `<span class="skill">${skill}</span>`).join(' ')}
+                              </div>
+                         </div>
+                    
+                    `;
+
+                    profilesContainer.appendChild(profileRow);
+               });
+          })
+          .catch(error => {
+               console.error('Error loading profiles:', error);
+               profilesContainer.innerHTML = '<p>Failed to load team profiles. Please try again later.</p>';
           });
 }

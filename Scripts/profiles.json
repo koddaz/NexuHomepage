@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Albert",
+    "title": "Lead Developer",
+    "image": "./img/stolenLogo.jpg",
+    "bio": "John is our lead developer with over 10 years of experience in web development. He specializes in frontend architecture and has led numerous successful projects for major clients.",
+    "skills": ["JavaScript", "React", "Node.js", "CSS"]
+  },
+  {
+    "id": 2,
+    "name": "Mattias",
+    "title": "UX Designer",
+    "image": "./img/stolenLogo.jpg",
+    "bio": "Jane brings creativity and user-centered thinking to every project. With a background in both design and psychology, she ensures our applications are not just functional but delightful to use.",
+    "skills": ["UI/UX", "Figma", "User Research", "Prototyping"]
+  },
+  {
+    "id": 3,
+    "name": "Joel",
+    "title": "Backend Engineer",
+    "image": "./img/stolenLogo.jpg",
+    "bio": "Michael handles our server-side architecture and database design. His focus on scalability and performance ensures our applications can handle growing user demands.",
+    "skills": ["Python", "Java", "SQL", "AWS"]
+  }
+  ,
+  {
+    "id": 4,
+    "name": "Johan",
+    "title": "Project Manager",
+    "image": "./img/stolenLogo.jpg",
+    "bio": "Sarah is the glue that holds our projects together. With her exceptional organizational skills and attention to detail, she ensures that every project runs smoothly and meets deadlines.",
+    "skills": ["Agile", "Scrum", "Communication", "Time Management"]
+  }
+]
