@@ -6,9 +6,20 @@
 
 .textContainer {
      display: flex;
+     flex-direction: column;
      justify-content: center;
      align-items: center;
      padding: 10px;
+}
+
+.textContainer ul {
+    width: 100%;
+    text-align: left; /* or center if you want centered text */
+    padding-left: 2rem; /* Consistent indentation */
+}
+
+.textContainer ul li {
+    padding: 0.25rem 0;
 }
 
 .cardContainer {

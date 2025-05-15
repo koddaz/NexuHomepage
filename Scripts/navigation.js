@@ -54,6 +54,7 @@ function hashToPage(hash) {
           'about': './tabs/about/about.html',
           'portfolio': './tabs/portfolio/portfolio.html',
           'contact': './tabs/contact/contact.html',
+          'product': './tabs/product/product.html',	
           // Add more pages as needed
      };
 
