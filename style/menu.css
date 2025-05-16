@@ -6,7 +6,7 @@ nav {
        overflow: hidden;
        width: 100%;
        color: var(--menu-item-text);
-       padding-top: 8px; /* Add padding to the top */
+
        background-color: var(--secondary);
 }
 
@@ -20,73 +20,93 @@ nav ul {
        padding: 0;
        display: flex;
        flex-direction: row;
-       justify-content: stretch; /* Changed from space-between */
-       width: 100%; /* Ensure full width */
-       
+       justify-content: stretch;
+       /* Changed from space-between */
+       width: 100%;
+       /* Ensure full width */
+
 }
 
 nav ul li {
        flex: 1;
-       display: block; /* Changed from inline-block */
+       display: block;
+       /* Changed from inline-block */
        text-align: center;
 }
 
 nav ul li:not(:last-child) {
-    position: relative;
+       position: relative;
 }
 
 nav ul li:not(:last-child)::after {
-    content: "|";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--on-secondary);
-    opacity: 0.5; /* Make it slightly transparent */
-    pointer-events: none; /* Ensures it doesn't interfere with clicks */
+       content: "|";
+       position: absolute;
+       right: 0;
+       top: 50%;
+       transform: translateY(-50%);
+       color: var(--on-secondary);
+       opacity: 0.5;
+       /* Make it slightly transparent */
+       pointer-events: none;
+       /* Ensures it doesn't interfere with clicks */
 }
 
 nav ul li a i {
        margin-right: 16px;
-       flex-shrink: 0; /* Prevent icon from shrinking */
-       width: 16px; /* Fixed width for alignment */
+       flex-shrink: 0;
+       /* Prevent icon from shrinking */
+       width: 16px;
+       /* Fixed width for alignment */
        text-align: center;
 }
 
 nav ul li a span {
-       flex-grow: 1; /* Take up remaining space */
-       text-align: center; /* Center the text */
-       margin-left: 0; /* Offset for the icon width */
+       flex-grow: 1;
+       /* Take up remaining space */
+       text-align: center;
+       /* Center the text */
+       margin-left: 0;
+       /* Offset for the icon width */
 }
 
 nav ul li a {
        display: flex;
        align-items: center;
-       justify-content: center;  /* Start content from left */
-       width: 100%; 
-       /* Fixed height that never changes */
+       justify-content: center;
+       width: 100%;
        color: var(--on-secondary);
        background-color: var(--secondary);
        text-align: center;
        padding: 2px 16px;
-       /* Horizontal padding only */
-
-
+       padding-top: 8px;
+       padding-bottom: 8px;
        text-decoration: none;
-       transition: background-color 0.3s ease;
-       position: relative; /* For absolute positioning if needed */
+       transition: all 0.3s ease;
+       position: relative;
+       transform-origin: top center; /* Set transform origin to top center */
+       transform: scale(1); /* Initial scale */
 }
 
 nav ul li a.active {
        background-color: var(--secondary-variant);
-       color: var(--on-secondary);
-       padding-top: 8px; /* Add padding to the top */
+       color: var(--on-secondary-variant);
+       font-weight: bold;
+       padding-top: 12px; /* Increased top padding when active */
+       padding-bottom: 8px;
+       transform: scale(1.05); /* Scale up slightly when active */
+       z-index: 1; /* Ensure active item appears above others */
+       box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow for depth */
+       
 }
 
 nav ul li a:hover {
        background-color: var(--secondary-variant);
        color: var(--on-secondary);
-       padding-top: 8px; /* Add padding to the top */
+       padding-top: 12px;
+       padding-bottom: 8px;
+       transform: scale(1.05); /* Scale up slightly on hover */
+       z-index: 1; /* Ensure hovered item appears above others */
+       box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow for depth */
 }
 
 
@@ -101,8 +121,9 @@ nav ul li a:hover {
               justify-content: center;
               padding: 0 16px;
               border-radius: 0;
-              margin-left: 0; /* Remove left margin */
-              
+              margin-left: 0;
+              /* Remove left margin */
+
               border: none;
               border-top: 1px solid var(--border-color);
        }
@@ -125,9 +146,12 @@ nav ul li a:hover {
        nav {
               position: absolute;
               top: 60px;
-              left: 5vw; /* Match sideSpacer width */
-              right: 5vw; /* Match sideSpacer width */
-              width: calc(100% - 10vw); /* Account for both side spacers */
+              left: 5vw;
+              /* Match sideSpacer width */
+              right: 5vw;
+              /* Match sideSpacer width */
+              width: calc(100% - 10vw);
+              /* Account for both side spacers */
               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
               z-index: 99;
               max-height: 0;
@@ -144,8 +168,10 @@ nav ul li a:hover {
 
        nav ul {
               flex-direction: column;
-              width: 100%; /* Full width of parent */
-              margin: 0; /* Remove auto margins */
+              width: 100%;
+              /* Full width of parent */
+              margin: 0;
+              /* Remove auto margins */
               border: 1px solid var(--border-color-dark);
        }
 
@@ -160,15 +186,19 @@ nav ul li a:hover {
 
        @media (max-width: 768px) {
               nav ul li:not(:last-child)::after {
-        display: none; /* Hide separators on mobile */
-    }
-}
+                     display: none;
+                     /* Hide separators on mobile */
+              }
+       }
 }
 
 @media (max-width: 480px) {
        nav {
-              left: 2vw; /* Match smaller sideSpacer */
-              right: 2vw; /* Match smaller sideSpacer */
-              width: calc(100% - 4vw); /* Account for both smaller side spacers */
+              left: 2vw;
+              /* Match smaller sideSpacer */
+              right: 2vw;
+              /* Match smaller sideSpacer */
+              width: calc(100% - 4vw);
+              /* Account for both smaller side spacers */
        }
 }
