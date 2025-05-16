@@ -3,12 +3,12 @@
    /* Primary colors */
     --primary: #6200EE;
     --primary-variant: #3700B3;
-    --secondary: #03DAC6;
+    --secondary: #00DAC6; 
     --secondary-variant: #018786;
     
     /* Surface colors */
-    --background: #FFFFFF;
-    --surface: #EEEEEE;
+    --background: #FCFCFC;
+    --surface: #FFFFFF;
     --error: #B00020;
     
     /* On colors (text/icons) */
@@ -20,7 +20,7 @@
 
     /* Custom theme colors */
     --header-bg: #3a0080; /* Darker purple for header */
-    --accent: #03DAC6; /* Using secondary teal as accent - complements purple */
+    --accent: #018786; /* Using secondary teal as accent - complements purple */
     --accent-hover: #018786; /* Darker teal for hover states */
     --text-light: #7b7b7b; /* Slightly warmer gray for better contrast */
     --card-shadow: rgba(98, 0, 238, 0.08); /* Shadow with hint of primary color */

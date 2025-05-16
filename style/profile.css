@@ -1,79 +1,71 @@
-.mainProfileRow {
-     width: 100%;
-     height: 300px;
-     display: flex;
-     flex-direction: row;
-     margin-bottom: 30px;
+/* Profile Grid Layout - Matching Portfolio */
+.profilesGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* Start with single column for smallest screens */
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.profileContainer {
+    display: flex;
+    flex-direction: column; /* Changed from row to column to match projects */
+    height: 100%; /* Fill the grid cell height */
+    background-color: var(--background);
+    border: 1px solid var(--border-color-dark);
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    padding: 0; /* Remove padding for consistent look with projects */
+}
+
+.profileContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profileContainer:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    outline: 2px solid var(--primary);
 }
 
 .profileImageContainer {
-     width: 20%; /* Reduced from 30% to 20% */
-     height: auto;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     padding-right: 20px;
+    width: 100%; /* Now full width like projects */
+    padding: 0; /* Remove padding to match projects */
+    display: block;
 }
 
-.profileImage {
-     width: 100%;
-     max-width: 100px; /* Reduced from 150px to 100px */
-     height: auto;
-     border-radius: 50%;
-     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-     object-fit: cover; /* Ensures proper scaling */
+.profileImageContainer img {
+    width: 100%;
+    height: 180px; /* Same as project images */
+    object-fit: cover;
+    object-position: top center; /* Keep this for better profile photos */
+    border-radius: 0; /* Remove border radius to match projects */
 }
 
-.profileText {
-     width: 80%; /* Increased from 70% to 80% */
-     height: auto;
-     display: flex;
-     flex-direction: column;
-     align-items: flex-start;
-     justify-content: center;
-     padding: 10px;
+.profileContent {
+    display: flex;
+    flex-direction: column;
+    padding: 15px; /* Match project content padding */
+    flex-grow: 1;
+    min-height: 120px; /* Same minimum height as projects */
 }
 
-.profileName {
-     font-weight: bold;
-     margin-bottom: 5px;
+/* Keep existing styles for name, title, bio, skills */
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .profilesGrid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+        gap: 20px;
+    }
 }
 
-.profileTitle {
-     color: var(--primary);
-     margin-bottom: 15px;
-}
-
-.profileBio {
-     text-align: justify;
-}
-
-.profilesContainer {
-     display: flex;
-     flex-direction: column;
-     width: 100%;
-     gap: 30px;
-}
-
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-     .mainProfileRow {
-          flex-direction: column;
-     }
-
-     .profileImageContainer {
-          width: 100%;
-          padding-right: 0;
-          padding-bottom: 20px;
-     }
-
-     .profileText {
-          width: 100%;
-          align-items: center;
-     }
-     
-     .profileBio {
-          text-align: center;
-     }
+@media screen and (min-width: 993px) {
+    .profilesGrid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Multiple columns on large screens */
+        gap: 20px;
+    }
 }

@@ -6,6 +6,8 @@ nav {
        overflow: hidden;
        width: 100%;
        color: var(--menu-item-text);
+       padding-top: 8px; /* Add padding to the top */
+       background-color: var(--secondary);
 }
 
 nav.open {
@@ -20,12 +22,28 @@ nav ul {
        flex-direction: row;
        justify-content: stretch; /* Changed from space-between */
        width: 100%; /* Ensure full width */
+       
 }
 
 nav ul li {
        flex: 1;
        display: block; /* Changed from inline-block */
        text-align: center;
+}
+
+nav ul li:not(:last-child) {
+    position: relative;
+}
+
+nav ul li:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--on-secondary);
+    opacity: 0.5; /* Make it slightly transparent */
+    pointer-events: none; /* Ensures it doesn't interfere with clicks */
 }
 
 nav ul li a i {
@@ -47,29 +65,28 @@ nav ul li a {
        justify-content: center;  /* Start content from left */
        width: 100%; 
        /* Fixed height that never changes */
-       color: var(--on-primary);
-       background-color: var(--primary-variant);
+       color: var(--on-secondary);
+       background-color: var(--secondary);
        text-align: center;
        padding: 2px 16px;
        /* Horizontal padding only */
-       border-top: 1px solid var(--border-color);
-       border-left: 1px solid var(--border-color);
-       border-right: 1px solid var(--border-color);
-       border-top-left-radius: 15px;
-       border-top-right-radius: 15px;
+
+
        text-decoration: none;
        transition: background-color 0.3s ease;
        position: relative; /* For absolute positioning if needed */
 }
 
 nav ul li a.active {
-       background-color: var(--accent);
-       color: var(--on-background);
+       background-color: var(--secondary-variant);
+       color: var(--on-secondary);
+       padding-top: 8px; /* Add padding to the top */
 }
 
 nav ul li a:hover {
-       background-color: var(--accent);
-       color: var(--on-background);
+       background-color: var(--secondary-variant);
+       color: var(--on-secondary);
+       padding-top: 8px; /* Add padding to the top */
 }
 
 
@@ -140,6 +157,12 @@ nav ul li a:hover {
               flex: 0 0 auto;
               justify-content: flex-end;
        }
+
+       @media (max-width: 768px) {
+              nav ul li:not(:last-child)::after {
+        display: none; /* Hide separators on mobile */
+    }
+}
 }
 
 @media (max-width: 480px) {

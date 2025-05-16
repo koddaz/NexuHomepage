@@ -3,33 +3,33 @@
     "id": 1,
     "name": "Albert",
     "title": "Lead Developer",
-    "image": "./img/stolenLogo.jpg",
-    "bio": "John is our lead developer with over 10 years of experience in web development. He specializes in frontend architecture and has led numerous successful projects for major clients.",
-    "skills": ["JavaScript", "React", "Node.js", "CSS"]
+    "image": "./img/gee_me_081.png",
+    "bio": "Plainly the best developer in the world.",
+    "skills": ["JavaScript", "React", "Kotlin", "CSS", "Swift", "HTML", "Everything"]
   },
   {
     "id": 2,
     "name": "Mattias",
-    "title": "UX Designer",
-    "image": "./img/stolenLogo.jpg",
-    "bio": "Jane brings creativity and user-centered thinking to every project. With a background in both design and psychology, she ensures our applications are not just functional but delightful to use.",
-    "skills": ["UI/UX", "Figma", "User Research", "Prototyping"]
+    "title": "Slave",
+    "image": "./img/gee_me_068.png",
+    "bio": "Only brings pain to the workt team by organizing uneccesaryr stuff. :D",
+    "skills": ["Figma"]
   },
   {
     "id": 3,
     "name": "Joel",
-    "title": "Backend Engineer",
-    "image": "./img/stolenLogo.jpg",
-    "bio": "Michael handles our server-side architecture and database design. His focus on scalability and performance ensures our applications can handle growing user demands.",
-    "skills": ["Python", "Java", "SQL", "AWS"]
+    "title": "Slave",
+    "image": "./img/gee_me_023.png",
+    "bio": "Talk, talk, talk :D",
+    "skills": ["Word to mouth"]
   }
   ,
   {
     "id": 4,
     "name": "Johan",
-    "title": "Project Manager",
-    "image": "./img/stolenLogo.jpg",
-    "bio": "Sarah is the glue that holds our projects together. With her exceptional organizational skills and attention to detail, she ensures that every project runs smoothly and meets deadlines.",
-    "skills": ["Agile", "Scrum", "Communication", "Time Management"]
+    "title": "Slave",
+    "image": "./img/gee_me_006.png",
+    "bio": "He can use Notion... :D",
+    "skills": ["Notion"]
   }
 ]

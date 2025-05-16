@@ -1,5 +1,5 @@
 function loadContent(page) {
-     const mainElement = document.querySelector('main');
+     const mainElement = document.querySelector('.cardContainer');
      mainElement.innerHTML = '<p>Loading...</p>';
 
      if (page.startsWith('#')) {
@@ -177,6 +177,9 @@ function loadProfiles() {
      if (!profilesContainer) return;
 
      profilesContainer.innerHTML = '<p>Loading team profiles...</p>';
+     
+     // Change the container class to grid layout
+     profilesContainer.className = 'profilesGrid';
 
      fetch('./Scripts/profiles.json')
           .then(response => {
@@ -189,25 +192,24 @@ function loadProfiles() {
                profilesContainer.innerHTML = '';
 
                profiles.forEach(profile => {
-                    const profileRow = document.createElement('div');
-                    profileRow.className = 'presentationContainer';
+                    const profileCard = document.createElement('div');
+                    profileCard.className = 'profileContainer';
 
-                    profileRow.innerHTML = `
-                         <div class="imageContainer">
-                              <img src="${profile.image}" alt="${profile.name}" class="profileImage" />
+                    profileCard.innerHTML = `
+                         <div class="profileImageContainer">
+                              <img src="${profile.image}" alt="${profile.name}" />
                          </div>
-                         <div class="projectContent">
+                         <div class="profileContent">
                               <h3 class="profileName text-subtitle">${profile.name}</h3>
-                              <p class="profileTitle text-caption ">${profile.title}</p>
-                              <p class="profileBio text-body-small text-justify">${profile.bio}</p>
+                              <p class="profileTitle text-caption">${profile.title}</p>
+                              <p class="profileBio text-body-small">${profile.bio}</p>
                               <div class="profileSkills">
                                    ${profile.skills.map(skill => `<span class="skill">${skill}</span>`).join(' ')}
                               </div>
                          </div>
-                    
                     `;
 
-                    profilesContainer.appendChild(profileRow);
+                    profilesContainer.appendChild(profileCard);
                });
           })
           .catch(error => {
