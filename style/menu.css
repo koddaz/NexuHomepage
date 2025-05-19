@@ -1,208 +1,125 @@
-/* Basic styling for the navigation menu */
+/* Hamburger menu styling - always visible */
+.menuToggle {
+    display: flex; /* Always visible */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 5px 15px; /* More horizontal padding */
+    color: var(--primary);
+    z-index: 1001;
+    margin-left: auto; /* Push to right side */
+    height: auto;
+}
 
+/* Navigation wrapper - hidden by default on all screen sizes */
 .navigationWrapper {
-       position: sticky;
-       top: 0;
-       width: 100%;
-       background-color: var(--surface);
-       border-bottom: 1px solid var(--border-color-dark);
-       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-       z-index: 95; /* Below header but above content */
+    position: fixed;
+    top: 90px; /* Match your header height */
+    left: auto;
+    right: 0;
+    z-index: 90;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border-color-dark);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%); /* Hide by default */
+    transition: transform 0.3s ease;
+    height: auto;
+    width: 280px; /* Fixed width for menu */
 }
 
-.menuContainer {
-     display: flex;
-     flex: 1;
-     align-items: flex-end;
-     height: 100%;
-     width: 100%;
+/* Show navigation when active class is applied */
+.navigationWrapper.active {
+    transform: translateX(0);
 }
 
-nav {
-       display: flex;
-       justify-content: stretch; 
-       overflow: hidden;
-       width: 100%;
-       color: var(--menu-item-text);
-       background-color: var(--secondary);
-}
-
-/* Menu styles */
+/* Vertical menu for all screen sizes */
 nav ul {
-       list-style-type: none;
-       margin: 0;
-       padding: 0;
-       display: flex;
-       flex-direction: row;
-       justify-content: center; /* Center items */
-       width: 100%;
-       max-width: 800px; /* Limit width on large screens */
-}
-
-nav ul li {
-       flex: 1;
-       display: block;
-       text-align: center;
-       position: relative; /* For divider positioning */
-}
-
-/* Add dividers between menu items */
-nav ul li:not(:last-child)::after {
-       content: "|";
-       position: absolute;
-       right: 0;
-       top: 50%;
-       transform: translateY(-50%);
-       color: var(--on-secondary);
-       opacity: 0.5;
-       pointer-events: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column; /* Always vertical */
+    width: 100%;
 }
 
 /* Menu item styling */
+nav ul li {
+    flex: none;
+    text-align: left;
+    position: relative;
+}
+
+/* Remove dividers between menu items */
+nav ul li:not(:last-child)::after {
+    display: none;
+}
+
+/* Menu link styling */
 nav ul li a {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       width: 100%;
-       color: var(--on-secondary);
-       background-color: var(--secondary);
-       text-align: center;
-       padding: 8px 16px;
-       text-decoration: none;
-       transition: all 0.3s ease;
-       position: relative;
-       transform-origin: top center; /* Scale from top center */
-       transform: scale(1); /* Initial scale */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    color: var(--on-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    height: auto;
+    border-top: 1px solid var(--border-color);
 }
 
-/* Icon styling */
-nav ul li a i {
-       margin-right: 16px;
-       flex-shrink: 0;
-       width: 16px;
-       text-align: center;
+/* First menu item has no top border */
+nav ul li:first-child a {
+    border-top: none;
 }
 
-/* Text styling */
-nav ul li a span {
-       flex-grow: 1;
-       text-align: center;
-       margin-left: 0;
-}
-
-/* Active menu item */
-nav ul li a.active {
-       background-color: var(--secondary-variant);
-       color: var(--on-secondary-variant);
-       font-weight: bold;
-       padding-top: 12px;
-       padding-bottom: 8px;
-       transform: scale(1.05); /* Scale up when active */
-       z-index: 1;
-       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover effects */
-nav ul li a:hover {
-       background-color: var(--secondary-variant);
-       color: var(--on-secondary);
-       padding-top: 12px;
-       padding-bottom: 8px;
-       transform: scale(1.05); /* Scale up on hover */
-       z-index: 1;
-       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.menuToggle {
-    display: none; /* Hide on desktop by default */
-    cursor: pointer;
-    padding: 10px;
-    font-size: 1.5rem;
-    margin-left: auto; /* Push to the right */
-}
-
+/* Mobile adjustments */
 @media (max-width: 768px) {
-    /* Show hamburger menu */
-    header .headerContent .menuToggle,
-    .menuToggle {
-        display: block !important;
-        cursor: pointer;
-        padding: 10px;
-        font-size: 1.5rem;
-        color: var(--primary); /* Make it more visible */
-    }
-
-    .menuToggle {
-        display: block; /* Show on mobile */
-        position: relative;
-        z-index: 101;
-        color: var(--primary-color); /* Make it more visible */
-        cursor: pointer;
-    }
-     
-  
-     
-     /* Hide the horizontal menu */
-     .menuContainer nav ul {
-          display: none;
-     }
-     
-     /* Only show menu when toggled open */
-     .menuContainer nav.open ul {
-          display: flex;
-     }
-    /* Full width nav */
     .navigationWrapper {
-        position: fixed;
-        top: 60px; /* Height of mobile header */
-        left: 0;
-        right: 0;
-        z-index: 90;
-        display: none; /* Hide by default */
-    }
-    
-    /* Show navigation when open class is applied */
-    .navigationWrapper.open {
-        display: block;
-    }
-    
-    /* Nav styling */
-    nav {
-        width: 100%;
-        margin: 0 auto;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Vertical menu on mobile */
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    /* Mobile menu items */
-    nav ul li a {
-        height: 40px;
-        justify-content: flex-start; /* Left align */
-        padding: 0 16px;
-        border-radius: 0;
-        border-top: 1px solid var(--border-color);
-        transform: scale(1) !important; /* Disable scaling on mobile */
-    }
-    
-    /* Remove border from first item */
-    nav ul li:first-child a {
-        border-top: none;
-    }
-    
-    /* Hide dividers on mobile */
-    nav ul li:not(:last-child)::after {
-        display: none;
+        top: 70px; /* Match mobile header height */
+        height: auto;
     }
 }
 
 /* Smaller screens */
 @media (max-width: 480px) {
-       nav {
-              width: 96%; /* Slightly wider on very small screens */
-       }
+    .navigationWrapper {
+        top: 60px; /* Match smaller header height */
+        height: auto;
+    }
+    
+    .menuToggle {
+        padding: 8px;
+        font-size: 1.3rem;
+    }
+}
+
+
+/* Custom scrollbar styling */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+     width: 10px;
+}
+
+::-webkit-scrollbar-track {
+     background: var(--background);
+     border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+     background: var(--surface);
+     border-radius: 10px;
+     border: 2px solid var(--on-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+     background: var(--on-primary);
+}
+
+/* For Firefox */
+html,
+body,
+main {
+     scrollbar-color: var(--surface) var(--background);
+     scrollbar-width: thin;
 }

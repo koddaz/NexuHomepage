@@ -1,0 +1,53 @@
+{
+  "bannerImages": [
+    {
+      "id": 1,
+      "tab": "home",
+      "url": "https://picsum.photos/id/1048/1920/250",
+      "alt": "Mountain landscape overlooking a lake",
+      "title": "Welcome to NexuHub",
+      "isDefault": true
+    },
+    {
+      "id": 2,
+      "tab": "about",
+      "url": "https://picsum.photos/id/366/1920/250",
+      "alt": "Modern office environment",
+      "title": "About Our Team"
+    },
+    {
+      "id": 3,
+      "tab": "portfolio",
+      "url": "https://picsum.photos/id/180/1920/250",
+      "alt": "Technology and innovation concept",
+      "title": "Our Projects"
+    },
+    {
+      "id": 4,
+      "tab": "contact",
+      "url": "https://picsum.photos/id/1/1920/250",
+      "alt": "Professional workspace with laptop",
+      "title": "Get In Touch"
+    },
+    {
+      "id": 5,
+      "tab": "product",
+      "url": "https://picsum.photos/id/160/1920/250",
+      "alt": "Digital product development concept",
+      "title": "Our Solutions"
+    }
+  ],
+  "defaultImage": {
+    "url": "https://picsum.photos/id/1048/1920/250",
+    "alt": "Default banner image"
+  },
+  "settings": {
+    "height": "300px",
+    "transitionEffect": "fade", 
+    "transitionDuration": "0.5s",
+    "overlay": {
+      "enabled": true,
+      "color": "rgba(0,0,0,0.3)"
+    }
+  }
+}

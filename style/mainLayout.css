@@ -30,29 +30,44 @@ html {
 }
 
 header {
-     display: flex;
-     flex-direction: row;
-     align-items: center;
      width: 100%;
-     height: auto;
-
-     background-color: var(--background);
-     position: sticky;
+     background-color: #fff;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     position: fixed;
      top: 0;
-     z-index: 100;
+     z-index: 1000;
+     height: 90px;
+     /* Slightly smaller fixed height */
 }
 
 .headerContent {
      display: flex;
-     flex-direction: row; /* Always row, not column */
-     align-items: center; /* Center items vertically */
-     justify-content: space-between; /* Logo on left, menu toggle on right */
-     border: 1px solid var(--border-color-dark);
-     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-     padding: 0 16px; /* Add horizontal padding */
+     flex-direction: row;
+     align-items: center;
+     padding: 0;
+     max-width: 1200px;
+     margin: 0 auto;
      height: 100%;
-     width: 100%;
-     background-color: var(--surface);
+     justify-content: space-between;
+}
+
+
+.logoContainer {
+     display: flex;
+     align-items: center;
+     justify-content: flex-start; /* Align to the left */
+     height: 100%;
+     padding: 10px 15px 10px 0; /* Increased left padding */
+}
+
+.logo {
+     height: 90px;
+     /* Fixed height rather than percentage */
+     width: auto;
+     object-fit: contain;
+     vertical-align: middle;
+     margin-right: 10px;
+     /* Add space between logo and menu */
 }
 
 main {
@@ -73,6 +88,54 @@ main {
      flex: 1;
 }
 
+.mainContent {
+     display: flex;
+     width: 100%;
+     flex: 1;
+     background-color: var(--background);
+}
+
+.sideSpacer {
+     display: flex;
+     flex-direction: column;
+     width: 1%;
+     /* On large screens */
+}
+
+/* Two-column layout */
+.mainRow {
+     display: flex;
+     flex-direction: row;
+     flex: 1;
+     width: 100%;
+     height: 100%;
+     background-color: var(--background);
+     padding: 16px;
+     gap: 24px;
+}
+
+/* Left column */
+.column-left {
+     flex: 3;
+     /* Takes 1 part of available space (or specify width like 60%) */
+     display: flex;
+     flex-direction: column;
+     min-width: 0;
+     /* Enables proper overflow handling */
+     background-color: var(--surface);
+     border-radius: var(--border-radius-md);
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     padding: 20px;
+}
+
+/* Right column */
+.column-right {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     min-width: 0;
+
+}
 
 footer {
      display: flex;
@@ -99,83 +162,58 @@ footer {
 .footerContent {
      display: flex;
      flex: 1;
-     justify-content: flex-end; /* Align text to the right */
-     padding: 8px 16px; /* Add padding to the content */
+     justify-content: flex-end;
+     /* Align text to the right */
+     padding: 8px 16px;
+     /* Add padding to the content */
 }
-
-.logo {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: auto; /* Fixed width for the image */
-     height: 120px; /* Fixed height for the image */
-     margin-right: 12px; /* Space between logo and text */
-     object-fit: contain; /* Preserve aspect ratio */
-}
-
-.logoContainer {
-     display: flex;
-     align-items: center;
-     padding-left: 16px;
-     height: 100%;
-     max-width: 75%;
-     align-items: center;
-     font-weight: bold;
-     font-size: 1.5rem;
-     flex-shrink: 0;
-}
-
-
-
-.mainContent {
-     display: flex;
-     width: 100%;
-     flex: 1;
-     background-color: var(--background);
-}
-
-.sideSpacer {
-     display: flex;
-     flex-direction: column;
-     width: 1%;
-     /* On large screens */
-}
-
 
 
 @media screen and (max-width: 768px) {
 
      header {
-          flex-direction: row;
-          border-bottom: 0;
-          height: 60px;
-     }
-     
-     .headerContent {
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          height: 100%;
-          width: 100%;
-     }
-     
-     .logo {
-          height: 60px;
+          height: 70px;
      }
 
-        /* Make side spacers smaller on mobile */
-     .sideSpacer {
-          width: 5vw;
+     .logo {
+          height: 50px;
+          /* Proportionally scaled */
      }
+
+     .navigationWrapper {
+          top: 70px;
+          height: calc(100vh - 70px);
+     }
+
      /* Show the menu toggle on mobile */
-    
+     .mainRow {
+          flex-direction: column;
+          /* Stack columns on mobile */
+          gap: 16px;
+          /* Smaller gap when stacked */
+     }
+
+     .column-left,
+     .column-right {
+          width: 100%;
+          /* Full width on mobile */
+     }
+
 }
 
-/* Even smaller screens */
 @media screen and (max-width: 480px) {
-     .sideSpacer {
-          width: 2vw; /* Even smaller spacers on phones */
-     }
+    header {
+        height: 60px;
+    }
+    
+    .logo {
+        height: 40px; /* Proportionally scaled */
+    }
+    
+    .navigationWrapper {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
 }
 
 

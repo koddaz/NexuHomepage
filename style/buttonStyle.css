@@ -1,0 +1,146 @@
+/* Responsive Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius-md);
+    background-color: var(--primary);
+    color: var(--on-primary);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ripple effect */
+.btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.5s;
+}
+
+.btn:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Icon spacing if button has icon */
+.btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Button variants */
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 10px 22px; /* Adjust for border */
+}
+
+.btn-text {
+    background-color: transparent;
+    color: var(--primary);
+    box-shadow: none;
+    padding: 8px 16px;
+}
+
+/* Hover and focus states */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.3);
+}
+
+.btn-outline:hover {
+    background-color: rgba(98, 0, 238, 0.1);
+}
+
+.btn-text:hover {
+    background-color: rgba(98, 0, 238, 0.1);
+    box-shadow: none;
+}
+
+/* Button sizes */
+.btn-lg {
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    
+    .btn-lg {
+        padding: 14px 28px;
+        font-size: 17px;
+    }
+    
+    .btn i {
+        font-size: 16px;
+    }
+}
+
+/* Mobile phone adjustments */
+@media (max-width: 480px) {
+    .btn {
+        padding: 12px 16px; /* Wider touch target for mobile */
+        font-size: 14px;
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 12px; /* Space between stacked buttons */
+    }
+    
+    .btn-lg {
+        padding: 14px 20px;
+    }
+    
+    /* For inline buttons that shouldn't be full width */
+    .btn-inline {
+        width: auto;
+    }
+    
+    /* Larger touch area for icon */
+    .btn i {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+}

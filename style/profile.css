@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr; /* Start with single column for smallest screens */
     gap: 15px;
-    margin-top: 20px;
+
     width: 100%;
     justify-content: center;
 }
@@ -54,18 +54,94 @@
     min-height: 120px; /* Same minimum height as projects */
 }
 
+.column-right .profilesGrid,
+.column-left .profilesGrid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* Force single column */
+    width: 100%;
+}
+
+/* Compact profile style for column views */
+.column-right .profileContainer,
+.column-left .profileContainer {
+    display: flex;
+    flex-direction: row; /* Horizontal layout for compact view */
+    height: auto;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.column-right .profileImageContainer,
+.column-left .profileImageContainer {
+    width: 80px;
+    min-width: 80px; /* Prevent shrinking */
+    height: 80px;
+}
+
+.column-right .profileImageContainer img,
+.column-left .profileImageContainer img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Make image circular */
+    object-fit: cover;
+}
+
+.column-right .profileContent,
+.column-left .profileContent {
+    padding: 8px 12px;
+    min-height: auto; /* Remove minimum height */
+}
 /* Keep existing styles for name, title, bio, skills */
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
-    .profilesGrid {
-        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
-        gap: 20px;
+    .column-right .profilesGrid,
+    .column-left .profilesGrid {
+        grid-template-columns: 1fr !important; /* Override the media query */
     }
 }
 
 @media screen and (min-width: 993px) {
-    .profilesGrid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Multiple columns on large screens */
-        gap: 20px;
+    .column-right .profilesGrid,
+    .column-left .profilesGrid {
+        grid-template-columns: 1fr !important; /* Override the media query */
     }
+}
+
+.column-right .profileContent h3,
+.column-left .profileContent h3 {
+    font-size: var(--font-md);
+    margin: 0 0 2px 0;
+    line-height: 1.1;
+}
+
+.column-right .profileContent h4,
+.column-left .profileContent h4 {
+    font-size: var(--font-sm);
+    margin: 0 0 2px 0;
+    line-height: 1.1;
+    color: var(--text-light);
+}
+
+.column-right .profileContent p,
+.column-left .profileContent p {
+    font-size: var(--font-xs);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.column-right .profileContent .skills,
+.column-left .profileContent .skills {
+    margin-top: 4px;
+}
+
+.column-right .profileContent .skill,
+.column-left .profileContent .skill {
+    display: inline-block;
+    font-size: var(--font-xs);
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    padding: 2px 6px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    border-radius: 4px;
 }
