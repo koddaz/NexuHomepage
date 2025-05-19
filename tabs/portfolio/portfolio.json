@@ -1,0 +1,25 @@
+{
+  "title": "Our work:",
+  "titleClass": "text-title-small",
+  "companyName": "JAMJ Development",
+  "productName": "NexuHub",
+  "imagePath": "/assets/images/portfolio/",
+  "sections": [
+    {
+      "text": "Here is a showcase of our work at JAMJ Development, where we design and develop digital solutions that connect businesses with their users. Our portfolio highlights key projects that demonstrate our expertise in creating seamless communication platforms.",
+      "textClass": "text-body-large text-justify"
+    },
+    {
+      "text": "Our flagship product NexuHub represents our focus on business-user relationships. We specialize in developing intuitive, feature-rich applications that help businesses engage with their customers more effectively and build lasting connections.",
+      "textClass": "text-body-medium text-justify"
+    },
+    {
+      "text": "With a passion for innovation and a focus on practical results, this portfolio reflects our team's commitment to building thoughtful, technology-driven solutions that transform how businesses and users interact in the digital space.",
+      "textClass": "text-body-medium text-justify"
+    }
+  ],
+  "projectsContainer": {
+    "id": "projectsContainer",
+    "class": "projectsGrid"
+  }
+}

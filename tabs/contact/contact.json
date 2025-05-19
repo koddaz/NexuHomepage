@@ -1,0 +1,13 @@
+{
+  "title": "Our Team",
+  "titleClass": "text-title-small",
+  "introduction": {
+    "text": "At JAMJ Development, our team is our greatest asset. We are a diverse group of dedicated professionals with expertise across multiple disciplines. Together, we collaborate to create innovative solutions that help businesses connect with their users in meaningful ways.\n\nEach team member brings unique skills and perspectives to our projects, allowing us to approach challenges from different angles and deliver comprehensive solutions. Meet the passionate individuals who make our work possible:",
+    "textClass": "text-body-small text-justify"
+  },
+  "profilesContainer": {
+    "id": "profilesContainer",
+    "class": "profilesGrid"
+  },
+  "imagePath": "/assets/images/team/"
+}
